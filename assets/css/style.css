@@ -1,0 +1,281 @@
+/* style.css — tema "Stone & Teal": netral hangat dengan satu warna aksen.
+   Semua warna dikumpulkan di :root, jadi mengganti tema cukup mengubah variabel di bawah. */
+
+:root {
+    /* Permukaan dan teks */
+    --latar: #f3f1ec;
+    --kartu: #ffffff;
+    --permukaan: #faf9f6;
+    --garis: #e8e5de;
+    --garis-tegas: #d6d2c8;
+    --tinta: #1c1f23;
+    --tinta-lembut: #5d636b;
+    --tinta-pudar: #6a7078;
+
+    /* Warna aksen (teal) */
+    --aksen: #0f766e;
+    --aksen-gelap: #0b5d57;
+    --aksen-lembut: #e3f1ef;
+
+    /* Warna ikon aksi */
+    --hapus: #b9374f;
+    --hapus-lembut: #fbebee;
+    --edit: #a8680f;
+    --edit-lembut: #fbf2e0;
+
+    --radius-kartu: 1.5rem;
+    --radius-kotak: 0.9rem;
+
+    --bs-body-font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--latar);
+    color: var(--tinta);
+    font-family: var(--bs-body-font-family);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Container utama (kartu) ---------- */
+.kartu-todo {
+    --bs-card-bg: var(--kartu);
+    --bs-card-border-color: var(--garis);
+    --bs-card-border-radius: var(--radius-kartu);
+    --bs-card-inner-border-radius: var(--radius-kartu);
+    box-shadow: 0 1px 2px rgba(28, 31, 35, 0.04), 0 16px 40px rgba(28, 31, 35, 0.07);
+}
+
+/* ---------- Kepala ---------- */
+.kepala {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    background: var(--aksen-lembut);
+    color: var(--aksen);
+    font-size: 1.5rem;
+}
+
+.judul-halaman {
+    margin: 0;
+    font-size: clamp(1.45rem, 4vw, 1.85rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.subjudul {
+    margin: 0.2rem 0 0;
+    color: var(--tinta-lembut);
+    font-size: 0.92rem;
+}
+
+/* ---------- Form tambah tugas ---------- */
+.form-tambah {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    border: 1px solid var(--garis);
+    border-radius: var(--radius-kotak);
+    background: var(--permukaan);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-tambah:focus-within {
+    border-color: var(--aksen);
+    box-shadow: 0 0 0 4px var(--aksen-lembut);
+}
+
+.form-tambah input[type="text"] {
+    flex: 1;
+    min-width: 0;
+    padding: 0.6rem 0.8rem;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--tinta);
+    font-size: 1rem;
+}
+
+.form-tambah input::placeholder {
+    color: var(--tinta-pudar);
+}
+
+/* Tombol Save (juga dipakai di modal) */
+.btn-simpan {
+    padding: 0.65rem 1.5rem;
+    border: 0;
+    border-radius: 0.65rem;
+    background: var(--aksen);
+    color: #fff;
+    font-weight: 600;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-simpan:hover,
+.btn-simpan:focus {
+    background: var(--aksen-gelap);
+    color: #fff;
+}
+
+.btn-simpan:active {
+    transform: scale(0.97);
+}
+
+/* ---------- Kotak statistik (juga berfungsi sebagai filter) ---------- */
+.kotak-statistik {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--garis);
+    border-radius: var(--radius-kotak);
+    background: var(--kartu);
+    text-decoration: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.kotak-statistik:hover {
+    border-color: var(--aksen);
+}
+
+.label-statistik {
+    color: var(--tinta-lembut);
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.angka-statistik {
+    color: var(--tinta);
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.kotak-statistik.aktif {
+    border-color: var(--aksen);
+    background: var(--aksen-lembut);
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+.kotak-statistik.aktif .angka-statistik,
+.kotak-statistik.aktif .label-statistik {
+    color: var(--aksen-gelap);
+}
+
+/* ---------- Baris tugas ---------- */
+.item-tugas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+    padding: 0.75rem 0.75rem 0.75rem 1.1rem;
+    border: 1px solid var(--garis);
+    border-radius: var(--radius-kotak);
+    background: var(--permukaan);
+    font-weight: 500;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.item-tugas:hover {
+    border-color: var(--garis-tegas);
+    background: var(--kartu);
+}
+
+.judul-tugas {
+    min-width: 0;
+    word-break: break-word;
+}
+
+.item-tugas.selesai .judul-tugas {
+    color: var(--tinta-pudar);
+    text-decoration: line-through;
+}
+
+/* ---------- Ikon aksi ---------- */
+.aksi-tugas {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.aksi-tugas form {
+    margin: 0;
+}
+
+.btn-ikon {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0.65rem;
+    background: transparent;
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-ikon:active {
+    transform: scale(0.92);
+}
+
+.ikon-hapus { color: var(--hapus); }
+.ikon-hapus:hover { background: var(--hapus-lembut); }
+
+.ikon-edit { color: var(--edit); }
+.ikon-edit:hover { background: var(--edit-lembut); }
+
+.ikon-selesai { color: var(--aksen); }
+.ikon-selesai:hover { background: var(--aksen-lembut); }
+
+/* ---------- Komponen Bootstrap yang diselaraskan ---------- */
+.form-control:focus {
+    border-color: var(--aksen);
+    box-shadow: 0 0 0 0.25rem var(--aksen-lembut);
+}
+
+.modal-content {
+    border-radius: var(--radius-kartu);
+}
+
+/* ---------- Animasi Animate.css: dibuat singkat agar terasa halus ---------- */
+.item-tugas.animate__animated {
+    --animate-duration: 0.45s;
+}
+
+.kepala.animate__animated {
+    --animate-duration: 0.7s;
+}
+
+/* Dialog SweetAlert2 mengikuti font halaman */
+.swal2-popup {
+    font-family: var(--bs-body-font-family);
+}
+
+/* ---------- Layar kecil ---------- */
+@media (max-width: 575.98px) {
+    .logo {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+    }
+
+    .btn-simpan {
+        padding: 0.65rem 1.1rem;
+    }
+}
