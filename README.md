@@ -131,3 +131,10 @@ $daftar = [
 - **Kredensial aman**: pengaturan pribadi ditaruh di `config.local.php` yang diabaikan Git
 - **Metode HTTP yang tepat**: perubahan data memakai **POST**, penyaringan tampilan memakai **GET**
 - **Pola Post/Redirect/Get**: refresh halaman tidak mengirim ulang form
+
+<img width="1917" height="976" alt="Screenshot 2026-10-17 101319" src="https://github.com/user-attachments/assets/83ba2c15-922e-4dec-bbca-64c84c83a7f2" />
+<img width="1917" height="978" alt="Screenshot 2026-10-17 101719" src="https://github.com/user-attachments/assets/18c0b322-6ecf-41ab-bef7-0087b4a4f85b" />
+<img width="1917" height="977" alt="Screenshot 2026-10-17 101340" src="https://github.com/user-attachments/assets/8608b27b-fe77-44db-b615-cfd5e1de3d46" />
+<img width="1917" height="977" alt="Screenshot 2026-10-17 101348" src="https://github.com/user-attachments/assets/f11aa960-b2e5-4b6b-924f-da295629e55a" />
+<img width="1917" height="976" alt="Screenshot 2026-10-17 101427" src="https://github.com/user-attachments/assets/598b69a3-670c-4f51-b96b-dfe29e8f9104" />
+<img width="1917" height="977" alt="Screenshot 2026-10-17 101435" src="https://github.com/user-attachments/assets/8e4c0cf5-2328-4359-8091-fae327052172" />
